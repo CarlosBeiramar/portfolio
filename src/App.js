@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Grid, Typography, Box, Avatar, Button } from '@mui/material';
+import { Grid, Typography, Box, Avatar, Button, Dialog, DialogContent } from '@mui/material';
 import WorkIcon from '@mui/icons-material/Work';
-import HomeIcon from '@mui/icons-material/Home';
+import MailIcon from '@mui/icons-material/Mail';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import PersonIcon from '@mui/icons-material/Person';
 import profileImage from './assets/circule_me.png';
 
 
@@ -16,10 +17,15 @@ function openGithubProfile() {
   window.open('https://github.com/CarlosBeiramar', '__blank')
 }
 
+function copyGmailToClipBoard() {
+  navigator.clipboard.writeText("carlosbeiramar@gmail.com")
+}
+
 function App() {
   // State for handling button clicks
   const [aboutMeClicked, setAboutMeClicked] = useState(false);
   const [contactMeClicked, setContactMeClicked] = useState(false);
+  const [gmailClicked, setGmailClicked] = useState(false);
 
   // Handlers to toggle button states
   const handleAboutMeClickButton = () => {
@@ -28,6 +34,19 @@ function App() {
 
   const handleContactMeClickButton = () => {
     setContactMeClicked(true);
+  };
+
+  const handleClose = () => {
+    setGmailClicked(false)
+  }
+
+  const handleOpen = () => {
+    setGmailClicked(true);
+    copyGmailToClipBoard()
+
+    setTimeout(() => {
+      setGmailClicked(false);
+    }, 700);
   };
 
   return (
@@ -43,21 +62,22 @@ function App() {
             sx={{ width: 250, height: 250, margin: '0 auto', marginBottom: 3 }}
           />
           <Typography variant='h3' component="h3" color="white" gutterBottom >
-            Carlos Beiramar
+            <WorkIcon fontSize='large' sx={{ verticalAlign: 'middle', marginRight: 0.25 }} /> Software Engineer
           </Typography>
           <Box>
             <Typography variant='h4' component='h4' color='white' gutterBottom>
-              <WorkIcon fontSize='medium' sx={{ verticalAlign: 'middle', marginRight: 0.25 }} /> Software Engineer
-            </Typography>
-          </Box>
-          <Box>
-            <Typography variant='h5' component='h4' color='white' gutterBottom>
-              <HomeIcon fontSize='medium' sx={{ verticalAlign: 'middle', marginRight: 0.25 }} /> Braga, Portugal
+              <PersonIcon fontSize='large' sx={{ verticalAlign: 'middle', marginRight: 0.25 }}/> Carlos Beiramar
             </Typography>
           </Box>
           <Box color='white'>
-            <GitHubIcon fontSize='medium' sx={{ verticalAlign: 'middle', marginRight: 1, cursor: 'pointer' }} onClick={openGithubProfile}/>
-            <LinkedInIcon fontSize='medium' sx={{ verticalAlign: 'middle', cursor: 'pointer' }}  onClick={openLinkedProfile}/>
+            <GitHubIcon fontSize='large' sx={{ verticalAlign: 'middle', marginRight: 1, cursor: 'pointer' }} onClick={openGithubProfile}/>
+            <LinkedInIcon fontSize='large' sx={{ verticalAlign: 'middle', marginRight: 1, cursor: 'pointer' }}  onClick={openLinkedProfile}/>
+            <MailIcon fontSize='large' sx={{ verticalAlign: 'middle', cursor: 'pointer' }} onClick={handleOpen}/>
+            <Dialog open={gmailClicked} onClose={handleClose}>
+              <DialogContent>
+                Copied to clipboard.
+              </DialogContent>
+            </Dialog>
           </Box>
         </Box>
       </Grid>
