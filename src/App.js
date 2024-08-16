@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Grid, Typography, Box, Avatar, Button, Dialog, DialogContent } from '@mui/material';
+import { Grid, Typography, Box, Avatar, Dialog, DialogContent } from '@mui/material';
 import WorkIcon from '@mui/icons-material/Work';
 import MailIcon from '@mui/icons-material/Mail';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PersonIcon from '@mui/icons-material/Person';
 import profileImage from './assets/circule_me.png';
-
+import CardGallery from './CardGallery.js';
 
 function openLinkedProfile() {
   window.open('https://www.linkedin.com/in/carlos-beiramar/', '__blank')
@@ -22,19 +22,8 @@ function copyGmailToClipBoard() {
 }
 
 function App() {
-  // State for handling button clicks
-  const [aboutMeClicked, setAboutMeClicked] = useState(false);
-  const [contactMeClicked, setContactMeClicked] = useState(false);
   const [gmailClicked, setGmailClicked] = useState(false);
 
-  // Handlers to toggle button states
-  const handleAboutMeClickButton = () => {
-    setAboutMeClicked(true);
-  };
-
-  const handleContactMeClickButton = () => {
-    setContactMeClicked(true);
-  };
 
   const handleClose = () => {
     setGmailClicked(false)
@@ -83,35 +72,8 @@ function App() {
       </Grid>
 
       {/* Right Side */}
-      <Grid item xs={12} md={6} style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 40 }}>
-        <Button
-          variant="outlined"
-          sx={{
-            width: '200px',
-            height: '60px',
-            fontSize: '18px',
-            transition: 'transform 0.5s ease-in-out',
-            transform: contactMeClicked ? 'translateY(400px)' : 'translateY(0)',
-            opacity: aboutMeClicked ?  0 : 1
-          }}
-          onClick={handleAboutMeClickButton}
-        >
-          About Me
-        </Button>
-        <Button
-          variant="outlined"
-          sx={{
-            width: '200px',
-            height: '60px',
-            fontSize: '18px',
-            transition: 'transform 0.5s ease-in-out',
-            transform: aboutMeClicked ? 'translateY(300px)' : 'translateY(0)', // Slide down effect
-            opacity: contactMeClicked ? 0 : 1
-          }}
-          onClick={handleContactMeClickButton}
-        >
-          Contact Me
-        </Button>
+      <Grid item xs={12} md={6} style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
+        <CardGallery/>
       </Grid>
     </Grid>
   );
