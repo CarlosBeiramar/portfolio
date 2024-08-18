@@ -1,22 +1,19 @@
 import React, { useState, useRef } from 'react';
-import { Grid, Card, CardContent, Typography, Box, Button } from '@mui/material';
+import { Grid, Card, CardContent, Typography, Box, Button, useMedia } from '@mui/material';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import SchoolIcon from '@mui/icons-material/School';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import DownloadIcon from '@mui/icons-material/Download';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const CardGallery = () => {
   const containerRef = useRef(null);
   const [showIssuuDates, setShowIssuuDates] = useState(false)
   const [showSteelEyeDates, setShowSteelEyeDates] = useState(false)
   const [showCapgeminiDates, setShowCapgeminiDates] = useState(false)
-
-//   const toggleDatesVisibility = () => {
-//     setShowDates(prevShowDates => !prevShowDates);
-//   };
-
+  const isMobile = useMediaQuery(theme => theme.breakpoints.down('sm'));
 
   const toggleDatesVisibility = (job) => {
     switch (job) {
@@ -37,7 +34,7 @@ const CardGallery = () => {
   const cards = [
     {
       title: (
-        <Typography variant='h4' component="h3" color="white" gutterBottom >
+        <Typography variant={isMobile ? 'h5' : 'h4'} component="h3" color="white" gutterBottom >
             About Me
         </Typography>
       ),
@@ -57,8 +54,8 @@ const CardGallery = () => {
     },
     {
       title: (
-        <Typography variant='h4' component="h3" color="white" gutterBottom >
-            <SchoolIcon fontSize='large' sx={{ verticalAlign: 'middle', marginRight: 0.25 }} /> Education
+        <Typography variant={isMobile ? 'h5' : 'h4'} component="h3" color="white" gutterBottom >
+            <SchoolIcon fontSize={isMobile ? 'medium': 'large'} sx={{ verticalAlign: 'middle', marginRight: 0.25 }} /> Education
         </Typography>
       ),
       content: (
@@ -76,7 +73,7 @@ const CardGallery = () => {
     },
     {
       title: (
-        <Typography variant='h4' component="h3" color="white" gutterBottom >
+        <Typography variant={isMobile ? 'h5' : 'h4'} component="h3" color="white" gutterBottom >
             Work Experience
         </Typography>
       ),
@@ -147,9 +144,9 @@ const CardGallery = () => {
           justifyContent: 'center'
         }}
       >
-        <Card sx={{ position: 'relative',  width: 500, height: 550, backgroundColor: '#282c34', color: 'white', borderRadius: '16px', boxShadow: "3px 3px 3px 3px black" }}>
-          <CardContent>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: '2vh', paddingTop: '5vh' }}>
+        <Card sx={{ position: 'relative',  width: '100%', maxWidth: '600px', minWidth: '300px', height: '550px', backgroundColor: '#282c34', color: 'white', borderRadius: '16px', boxShadow: "3px 3px 3px 3px black" }}>
+          <CardContent sx={{ overflowY: 'auto', maxHeight: '100%' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: '2vh', paddingTop: isMobile ? '2vh': '5vh' }}>
               {cards[currentCardIndex].title}
             </Box>
             <Box sx={{ marginRight: '5vh', marginLeft: '5vh', display: 'flex', flexDirection: 'column', gap: 2}}>

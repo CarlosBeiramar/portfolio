@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Grid, Typography, Box, Avatar, Dialog, DialogContent } from '@mui/material';
+import { Grid, Typography, Box, Avatar, Dialog, DialogContent, useMediaQuery } from '@mui/material';
 import WorkIcon from '@mui/icons-material/Work';
 import MailIcon from '@mui/icons-material/Mail';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -23,6 +23,7 @@ function copyGmailToClipBoard() {
 
 function App() {
   const [gmailClicked, setGmailClicked] = useState(false);
+  const isMobile = useMediaQuery(theme => theme.breakpoints.down('sm'));
 
 
   const handleClose = () => {
@@ -39,7 +40,7 @@ function App() {
   };
 
   return (
-    <Grid container style={{ minHeight: '100vh', backgroundColor: '#282c34' }}>
+    <Grid container style={{ minHeight: '100vh', backgroundColor: '#282c34', overflow: 'hidden' }}>
 
       {/* Left Side */}
       <Grid item xs={12} md={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -48,20 +49,20 @@ function App() {
             alt="Carlos Beiramar"
             src={profileImage}
             className="avatar"
-            sx={{ width: 250, height: 250, margin: '0 auto', marginBottom: 3 }}
+            sx={{ width: 250, height: 250, margin: '0 auto', marginBottom: 3, marginTop: isMobile ? '5vh':'0vh' }}
           />
-          <Typography variant='h3' component="h3" color="white" gutterBottom >
-            <WorkIcon fontSize='large' sx={{ verticalAlign: 'middle', marginRight: 0.25 }} /> Software Engineer
+          <Typography variant= {isMobile ? 'h5' : 'h4'}  component="h3" color="white" gutterBottom >
+            <WorkIcon fontSize={isMobile ? 'medium': 'large'} sx={{ verticalAlign: 'middle', marginRight: 0.25 }} /> Software Engineer
           </Typography>
           <Box>
-            <Typography variant='h4' component='h4' color='white' gutterBottom>
-              <PersonIcon fontSize='large' sx={{ verticalAlign: 'middle', marginRight: 0.25 }}/> Carlos Beiramar
+            <Typography variant={isMobile ? 'h5' : 'h4'} component='h4' color='white' gutterBottom>
+              <PersonIcon fontSize={isMobile ? 'medium': 'large'} sx={{ verticalAlign: 'middle', marginRight: 0.25 }}/> Carlos Beiramar
             </Typography>
           </Box>
           <Box color='white'>
-            <GitHubIcon fontSize='large' sx={{ verticalAlign: 'middle', marginRight: 1, cursor: 'pointer' }} onClick={openGithubProfile}/>
-            <LinkedInIcon fontSize='large' sx={{ verticalAlign: 'middle', marginRight: 1, cursor: 'pointer' }}  onClick={openLinkedProfile}/>
-            <MailIcon fontSize='large' sx={{ verticalAlign: 'middle', cursor: 'pointer' }} onClick={handleOpen}/>
+            <GitHubIcon fontSize={isMobile ? 'medium': 'large'} sx={{ verticalAlign: 'middle', marginRight: 1, cursor: 'pointer' }} onClick={openGithubProfile}/>
+            <LinkedInIcon fontSize={isMobile ? 'medium': 'large'} sx={{ verticalAlign: 'middle', marginRight: 1, cursor: 'pointer' }}  onClick={openLinkedProfile}/>
+            <MailIcon fontSize={isMobile ? 'medium': 'large'} sx={{ verticalAlign: 'middle', cursor: 'pointer' }} onClick={handleOpen}/>
             <Dialog open={gmailClicked} onClose={handleClose}>
               <DialogContent>
                 Copied to clipboard.
