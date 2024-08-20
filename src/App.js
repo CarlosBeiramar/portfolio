@@ -6,7 +6,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PersonIcon from '@mui/icons-material/Person';
-import profileImage from './assets/circule_me.png';
+import profileImage from './assets/circule_me.jpg';
 import CardGallery from './CardGallery.js';
 
 function openLinkedProfile() {
@@ -49,7 +49,7 @@ function App() {
             alt="Carlos Beiramar"
             src={profileImage}
             className="avatar"
-            sx={{ width: 250, height: 250, margin: '0 auto', marginBottom: 3, marginTop: isMobile ? '5vh':'0vh' }}
+            sx={{ width: 250, height: 250, margin: '0 auto', marginBottom: 3, marginTop: isMobile ? '5fvh':'0vh' }}
           />
           <Typography variant= {isMobile ? 'h5' : 'h4'}  component="h3" color="white" gutterBottom >
             <WorkIcon fontSize={isMobile ? 'medium': 'large'} sx={{ verticalAlign: 'middle', marginRight: 0.25 }} /> Software Engineer
