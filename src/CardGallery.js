@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Grid, Card, CardContent, Typography, Box, Button, useMedia } from '@mui/material';
+import { Grid, Card, CardContent, Typography, Box, Button } from '@mui/material';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import SchoolIcon from '@mui/icons-material/School';
@@ -26,6 +26,8 @@ const CardGallery = () => {
         case 'capgemini':
             setShowCapgeminiDates(prev => !prev)
             break;
+        default:
+          break
     }
   }
 
