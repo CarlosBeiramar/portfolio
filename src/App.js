@@ -51,18 +51,18 @@ function App() {
             className="avatar"
             sx={{ width: 250, height: 250, margin: '0 auto', marginBottom: 3, marginTop: isMobile ? '5fvh':'0vh' }}
           />
-          <Typography variant= {isMobile ? 'h5' : 'h4'}  component="h3" color="white" gutterBottom >
-            <WorkIcon fontSize={isMobile ? 'medium': 'large'} sx={{ verticalAlign: 'middle', marginRight: 0.25 }} /> Software Engineer
+          <Typography variant= 'h5'  component="h3" color="white" gutterBottom >
+            <WorkIcon fontSize='medium' sx={{ verticalAlign: 'middle', marginRight: 0.25 }} /> Software Engineer
           </Typography>
           <Box>
-            <Typography variant={isMobile ? 'h5' : 'h4'} component='h4' color='white' gutterBottom>
-              <PersonIcon fontSize={isMobile ? 'medium': 'large'} sx={{ verticalAlign: 'middle', marginRight: 0.25 }}/> Carlos Beiramar
+            <Typography variant='h5' component='h4' color='white' gutterBottom>
+              <PersonIcon fontSize='medium' sx={{ verticalAlign: 'middle', marginRight: 0.25 }}/> Carlos Beiramar
             </Typography>
           </Box>
           <Box color='white'>
-            <GitHubIcon fontSize={isMobile ? 'medium': 'large'} sx={{ verticalAlign: 'middle', marginRight: 1, cursor: 'pointer' }} onClick={openGithubProfile}/>
-            <LinkedInIcon fontSize={isMobile ? 'medium': 'large'} sx={{ verticalAlign: 'middle', marginRight: 1, cursor: 'pointer' }}  onClick={openLinkedProfile}/>
-            <MailIcon fontSize={isMobile ? 'medium': 'large'} sx={{ verticalAlign: 'middle', cursor: 'pointer' }} onClick={handleOpen}/>
+            <GitHubIcon fontSize='medium' sx={{ verticalAlign: 'middle', marginRight: 1, cursor: 'pointer' }} onClick={openGithubProfile}/>
+            <LinkedInIcon fontSize='medium' sx={{ verticalAlign: 'middle', marginRight: 1, cursor: 'pointer' }}  onClick={openLinkedProfile}/>
+            <MailIcon fontSize='medium' sx={{ verticalAlign: 'middle', cursor: 'pointer' }} onClick={handleOpen}/>
             <Dialog open={gmailClicked} onClose={handleClose}>
               <DialogContent>
                 Copied to clipboard.
