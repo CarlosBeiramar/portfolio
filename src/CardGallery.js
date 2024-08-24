@@ -7,7 +7,6 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import DownloadIcon from '@mui/icons-material/Download';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { BorderColor } from '@mui/icons-material';
 
 const CardGallery = () => {
   const containerRef = useRef(null);
@@ -152,7 +151,7 @@ const CardGallery = () => {
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: '2vh', paddingTop: isMobile ? '2vh': '5vh' }}>
               {cards[currentCardIndex].title}
             </Box>
-            <Box sx={{ marginRight: '5vh', marginLeft: '5vh', display: 'flex', flexDirection: 'column', gap: 2, paddingBottom: isMobile && currentCardIndex == 0 ? '5vh' : '0vh' }}>
+            <Box sx={{ marginRight: '5vh', marginLeft: '5vh', display: 'flex', flexDirection: 'column', gap: 2, paddingBottom: isMobile && currentCardIndex === 0 ? '5vh' : '0vh' }}>
                 {cards[currentCardIndex].content}
             </Box>
           </CardContent>
