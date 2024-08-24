@@ -7,6 +7,7 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import DownloadIcon from '@mui/icons-material/Download';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { BorderColor } from '@mui/icons-material';
 
 const CardGallery = () => {
   const containerRef = useRef(null);
@@ -36,7 +37,7 @@ const CardGallery = () => {
   const cards = [
     {
       title: (
-        <Typography variant={isMobile ? 'h5' : 'h4'} component="h3" color="white" gutterBottom >
+        <Typography variant={isMobile ? 'h5' : 'h4'} component="h3" gutterBottom >
             About Me
         </Typography>
       ),
@@ -56,7 +57,7 @@ const CardGallery = () => {
     },
     {
       title: (
-        <Typography variant={isMobile ? 'h5' : 'h4'} component="h3" color="white" gutterBottom >
+        <Typography variant={isMobile ? 'h5' : 'h4'} component="h3" gutterBottom >
             <SchoolIcon fontSize={isMobile ? 'medium': 'large'} sx={{ verticalAlign: 'middle', marginRight: 0.25 }} /> Education
         </Typography>
       ),
@@ -75,7 +76,7 @@ const CardGallery = () => {
     },
     {
       title: (
-        <Typography variant={isMobile ? 'h5' : 'h4'} component="h3" color="white" gutterBottom >
+        <Typography variant={isMobile ? 'h5' : 'h4'} component="h3" gutterBottom >
             Work Experience
         </Typography>
       ),
@@ -102,8 +103,8 @@ const CardGallery = () => {
                     {showCapgeminiDates && <Typography variant='body2' sx={{ marginLeft: 2, position: 'absolute'}}>Jun. 2022 - Jun. 2023</Typography>}
                 </Box>
             </Typography>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '15vh'}}>
-                <Button variant="outlined" href="./CarlosBeiramar_CV.pdf" download>Curriculum <DownloadIcon sx={{ marginLeft: '2px'}}/></Button>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '15vh' }}>
+                <Button variant="outlined" href="./CarlosBeiramar_CV.pdf" sx={{ color:'white', borderColor: 'white', '&:hover': { borderColor: 'white' }}} download>Curriculum <DownloadIcon sx={{ marginLeft: '2px' }}/></Button>
             </Box>
         </>
       )
@@ -146,12 +147,12 @@ const CardGallery = () => {
           justifyContent: 'center'
         }}
       >
-        <Card sx={{ position: 'relative',  width: isMobile ? '100%' : '550px', maxWidth: '600px', minWidth: '300px', height: '550px', backgroundColor: '#282c34', color: 'white', borderRadius: '16px', boxShadow: "3px 3px 3px 3px black" }}>
+        <Card sx={{ position: 'relative',  width: isMobile ? '100%' : '550px', maxWidth: '600px', minWidth: '300px', height: '550px', backgroundColor: '#15616D', color: 'white', borderRadius: '16px', boxShadow: "3px 3px 3px 3px black" }}>
           <CardContent sx={{ overflowY: 'auto', maxHeight: '100%' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: '2vh', paddingTop: isMobile ? '2vh': '5vh' }}>
               {cards[currentCardIndex].title}
             </Box>
-            <Box sx={{ marginRight: '5vh', marginLeft: '5vh', display: 'flex', flexDirection: 'column', gap: 2}}>
+            <Box sx={{ marginRight: '5vh', marginLeft: '5vh', display: 'flex', flexDirection: 'column', gap: 2, paddingBottom: isMobile && currentCardIndex == 0 ? '5vh' : '0vh' }}>
                 {cards[currentCardIndex].content}
             </Box>
           </CardContent>

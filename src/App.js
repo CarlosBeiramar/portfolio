@@ -40,7 +40,7 @@ function App() {
   };
 
   return (
-    <Grid container style={{ minHeight: '100vh', backgroundColor: '#282c34', overflow: 'hidden' }}>
+    <Grid container style={{ minHeight: '100vh', backgroundColor: '#001524', overflow: 'hidden' }}>
 
       {/* Left Side */}
       <Grid item xs={12} md={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -49,7 +49,7 @@ function App() {
             alt="Carlos Beiramar"
             src={profileImage}
             className="avatar"
-            sx={{ width: 250, height: 250, margin: '0 auto', marginBottom: 3, marginTop: isMobile ? '5fvh':'0vh' }}
+            sx={{ width: 250, height: 250, margin: '0 auto', marginBottom: 3, marginTop: isMobile ? '5vh':'0vh' }}
           />
           <Typography variant= 'h5'  component="h3" color="white" gutterBottom >
             <WorkIcon fontSize='medium' sx={{ verticalAlign: 'middle', marginRight: 0.25 }} /> Software Engineer
