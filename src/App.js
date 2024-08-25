@@ -52,11 +52,15 @@ function App() {
             sx={{ width: 250, height: 250, margin: '0 auto', marginBottom: 3, marginTop: isMobile ? '5vh':'0vh' }}
           />
           <Typography variant= 'h5'  component="h3" color="white" gutterBottom >
-            <WorkIcon fontSize='medium' sx={{ verticalAlign: 'middle', marginRight: 0.25 }} /> Software Engineer
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1}}>
+              <WorkIcon fontSize='medium' sx={{ verticalAlign: 'middle', marginRight: 0.25 }} /> Software Engineer
+            </Box>
           </Typography>
           <Box>
             <Typography variant='h5' component='h4' color='white' gutterBottom>
-              <PersonIcon fontSize='medium' sx={{ verticalAlign: 'middle', marginRight: 0.25 }}/> Carlos Beiramar
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <PersonIcon fontSize='medium' sx={{ verticalAlign: 'middle', marginRight: 0.25 }}/> Carlos Beiramar
+              </Box>
             </Typography>
           </Box>
           <Box color='white'>
