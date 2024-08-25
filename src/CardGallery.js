@@ -89,7 +89,7 @@ const CardGallery = () => {
             <Typography variant='body1' paragraph sx={{ display: 'flex', flexDirection: 'row'}}>
                 {!showIssuuDates && <ArrowRightIcon sx={{ cursor: 'pointer' }} onClick={() => toggleDatesVisibility('issuu')}/>}
                 {showIssuuDates && <ArrowDropDownIcon sx={{ cursor: 'pointer' }} onClick={() => toggleDatesVisibility('issuu')}/>}
-                <Box sx={{ fontWeight: 'bold' }}><strong>Junior Software Engineer</strong> @ ISSUU
+                <Box sx={{ fontWeight: 'bold' }}><strong>Junior Software Engineer</strong> @ Issuu
                     {showIssuuDates && <Typography variant='body2' sx={{ marginLeft: 2, position: 'absolute'}}>March 2024 - Present</Typography>}
                 </Box>
             </Typography>
