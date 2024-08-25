@@ -7,6 +7,7 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import DownloadIcon from '@mui/icons-material/Download';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { transition } from 'three/webgpu';
 
 const CardGallery = () => {
   const containerRef = useRef(null);
@@ -103,7 +104,18 @@ const CardGallery = () => {
                 </Box>
             </Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '15vh' }}>
-                <Button variant="outlined" href="./CarlosBeiramar_CV.pdf" sx={{ color:'white', borderColor: 'white', '&:hover': { borderColor: 'white' }}} download>Curriculum <DownloadIcon sx={{ marginLeft: '2px' }}/></Button>
+                <Button variant="outlined" href="./CarlosBeiramar_CV.pdf"
+                sx= {{
+                  color:'white',
+                  borderRadius: '16px',
+                  borderColor: 'white',
+                  boxShadow: '5px 5px 0px #000',
+                  '&:hover': {
+                    color: '#000',
+                    border: '2px solid #000'
+                  }
+                }}
+                download>Curriculum <DownloadIcon sx={{ marginLeft: '2px' }}/></Button>
             </Box>
         </>
       )
