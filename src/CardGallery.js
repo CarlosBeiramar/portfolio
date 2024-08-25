@@ -7,7 +7,8 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import DownloadIcon from '@mui/icons-material/Download';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { transition } from 'three/webgpu';
+import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
+import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
 
 const CardGallery = () => {
   const containerRef = useRef(null);
@@ -38,7 +39,10 @@ const CardGallery = () => {
     {
       title: (
         <Typography variant={isMobile ? 'h5' : 'h4'} component="h3" gutterBottom >
+          <Box display="flex" alignItems="center">
+            <EmojiPeopleIcon fontSize={isMobile ? 'medium': 'large'} sx={{ marginRight: 0.25 }} />
             About Me
+          </Box>
         </Typography>
       ),
       content: (
@@ -77,7 +81,7 @@ const CardGallery = () => {
     {
       title: (
         <Typography variant={isMobile ? 'h5' : 'h4'} component="h3" gutterBottom >
-            Work Experience
+            <WorkHistoryIcon fontSize={isMobile ? 'medium' : 'large'} sx={{ verticalAlign: 'middle', marginRight: 0.25}}/> Work Experience
         </Typography>
       ),
       content: (
