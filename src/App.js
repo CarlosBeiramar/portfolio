@@ -8,6 +8,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PersonIcon from '@mui/icons-material/Person';
 import profileImage from './assets/circule_me.jpg';
 import CardGallery from './CardGallery.js';
+import TypingAnimation from './components/TypingAnimation.tsx';
 
 function openLinkedProfile() {
   window.open('https://www.linkedin.com/in/carlos-beiramar/', '__blank')
@@ -53,13 +54,13 @@ function App() {
           />
           <Typography variant= 'h5'  component="h3" color="white" gutterBottom >
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1}}>
-              <WorkIcon fontSize='medium' sx={{ verticalAlign: 'middle', marginRight: 0.25 }} /> Software Engineer
+              <WorkIcon fontSize='medium' sx={{ verticalAlign: 'middle', marginRight: 0.25 }} /> <TypingAnimation text="Software Engineer" duration={100} variant="h5" />
             </Box>
           </Typography>
           <Box>
-            <Typography variant='h5' component='h4' color='white' gutterBottom>
+            <Typography variant='h5' color='white' gutterBottom>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                <PersonIcon fontSize='medium' sx={{ verticalAlign: 'middle', marginRight: 0.25 }}/> Carlos Beiramar
+                <PersonIcon fontSize='medium' sx={{ verticalAlign: 'middle', marginRight: 0.25 }}/> <TypingAnimation text="Carlos Beiramar" duration={100} variant="h5" />
               </Box>
             </Typography>
           </Box>
