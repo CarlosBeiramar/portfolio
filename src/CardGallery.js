@@ -167,7 +167,7 @@ const CardGallery = () => {
           justifyContent: 'center'
         }}
       >
-        <Card sx={{ position: 'relative',  width: isMobile ? '100%' : '550px', maxWidth: '600px', minWidth: '300px', height: '550px', backgroundColor: '#15616D', color: 'white', borderRadius: '16px', border: '1px solid #fff', boxShadow: "10px 10px 10px 0px black" }}>
+        <Card sx={{ position: 'relative',  width: isMobile ? '100%' : '550px', maxWidth: '600px', minWidth: '300px', height: '550px', backgroundColor: '#34648C', color: 'white', borderRadius: '16px', border: '1px solid #fff', boxShadow: "10px 10px 10px 0px black" }}>
           <CardContent sx={{ overflowY: 'auto', maxHeight: '100%' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: '2vh', paddingTop: isMobile ? '2vh': '5vh' }}>
               {cards[currentCardIndex].title}
