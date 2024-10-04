@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Grid, Typography, Box, Avatar, Dialog, DialogContent, useMediaQuery } from '@mui/material';
+import { Grid, Typography, Box, Avatar, Dialog, DialogContent, useMediaQuery, Button } from '@mui/material';
 import WorkIcon from '@mui/icons-material/Work';
 import MailIcon from '@mui/icons-material/Mail';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -9,6 +9,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import profileImage from './assets/circule_me.jpg';
 import CardGallery from './CardGallery.js';
 import TypingAnimation from './components/TypingAnimation.tsx';
+import { IconCloud } from './components/IconCloud.tsx';
 
 function openLinkedProfile() {
   window.open('https://www.linkedin.com/in/carlos-beiramar/', '__blank')
@@ -25,6 +26,7 @@ function copyGmailToClipBoard() {
 function App() {
   const [gmailClicked, setGmailClicked] = useState(false);
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('sm'));
+  const [aboutMeClicked, setAboutMeClicked] = useState(false);
 
 
   const handleClose = () => {
@@ -39,6 +41,29 @@ function App() {
       setGmailClicked(false);
     }, 700);
   };
+
+  const iconSlugs = [
+    "python",
+    "java",
+    "git",
+    "github",
+    "docker",
+    "visualstudiocode",
+    "postgresql",
+    "react",
+    "haskell",
+    "kotlin",
+    "c",
+    "mongodb",
+    "materialui",
+    "jenkins",
+    "django",
+    "amazonwebservices",
+    "figma",
+    "javascript",
+    "elixir",
+    "githubactions"
+  ];
 
   return (
     <Grid container style={{ minHeight: '100vh', backgroundColor: '#001524', overflow: 'hidden' }}>
@@ -79,7 +104,45 @@ function App() {
 
       {/* Right Side */}
       <Grid item xs={12} md={6} style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
-        <CardGallery/>
+        {!aboutMeClicked && (
+          <>
+            <Box
+              sx={{
+                width: isMobile? '100%' :'80%',
+                height: isMobile? '100%': '80%',
+                overflow: 'hidden',
+              }}
+            >
+              <IconCloud iconSlugs={iconSlugs} />
+            </Box>
+            <Box>
+              <Button
+                variant="outlined"
+                sx={{
+                  backgroundColor: '#1c5690',
+                  color: 'white',
+                  borderRadius: '16px',
+                  borderColor: '#000',
+                  paddingBottom: '1vh',
+                  paddingTop: '1vh',
+                  boxShadow: '5px 5px 0px #000',
+                  '&:hover': {
+                    color: 'white',
+                    border: '2px solid #000',
+                  },
+                }}
+                onClick={() => setAboutMeClicked(true)}
+              >
+                About Me
+              </Button>
+            </Box>
+          </>
+        )}
+        {aboutMeClicked && (
+          <Box>
+            <CardGallery onClose={() => setAboutMeClicked(false)} />
+          </Box>
+        )}
       </Grid>
     </Grid>
   );

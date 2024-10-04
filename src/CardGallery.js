@@ -10,7 +10,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
 
-const CardGallery = () => {
+const CardGallery = ({onClose}) => {
   const containerRef = useRef(null);
   const [showIssuuDates, setShowIssuuDates] = useState(false)
   const [showSteelEyeDates, setShowSteelEyeDates] = useState(false)
@@ -164,31 +164,95 @@ const CardGallery = () => {
           padding: 2,
           scrollBehavior: 'smooth',
           alignItems: 'center',
-          justifyContent: 'center'
+          justifyContent: 'center',
         }}
       >
-        <Card sx={{ position: 'relative',  width: isMobile ? '100%' : '550px', maxWidth: '600px', minWidth: '300px', height: '550px', backgroundColor: '#34648C', color: 'white', borderRadius: '16px', border: '1px solid #fff', boxShadow: "10px 10px 10px 0px black" }}>
+        <Card
+          sx={{
+            position: 'relative',
+            width: isMobile ? '100%' : '550px',
+            maxWidth: '600px',
+            minWidth: '300px',
+            height: '550px',
+            backgroundColor: '#1c5690',
+            color: 'white',
+            borderRadius: '16px',
+            border: '1px solid #fff',
+            boxShadow: '10px 10px 10px 0px black',
+          }}
+        >
+          {/* Arrows inside the card */}
+          {currentCardIndex > 0 && (
+            <ArrowCircleLeftIcon
+              fontSize="medium"
+              sx={{
+                position: 'absolute',
+                top: '50%',
+                left: '5%',
+                transform: 'translateY(-50%)',
+                color: 'white',
+                cursor: 'pointer',
+              }}
+              onClick={handlePreviousCard}
+            />
+          )}
+          {currentCardIndex < 2 && (
+            <ArrowCircleRightIcon
+              fontSize="medium"
+              sx={{
+                position: 'absolute',
+                top: '50%',
+                right: '5%',
+                transform: 'translateY(-50%)',
+                color: 'white',
+                cursor: 'pointer',
+              }}
+              onClick={handleNextCard}
+            />
+          )}
+
           <CardContent sx={{ overflowY: 'auto', maxHeight: '100%' }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: '2vh', paddingTop: isMobile ? '2vh': '5vh' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                paddingBottom: '2vh',
+                paddingTop: isMobile ? '2vh' : '5vh',
+              }}
+            >
               {cards[currentCardIndex].title}
             </Box>
-            <Box sx={{ marginRight: '5vh', marginLeft: '5vh', display: 'flex', flexDirection: 'column', gap: 2, paddingBottom: isMobile && currentCardIndex === 0 ? '5vh' : '0vh' }}>
-                {cards[currentCardIndex].content}
+            <Box
+              sx={{
+                marginRight: '5vh',
+                marginLeft: '5vh',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 2,
+                paddingBottom: isMobile && currentCardIndex === 0 ? '5vh' : '0vh',
+              }}
+            >
+              {cards[currentCardIndex].content}
             </Box>
           </CardContent>
         </Card>
-        <Grid sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-            {currentCardIndex > 0 && (
-                <>
-                    <ArrowCircleLeftIcon fontSize='large' sx={{ verticalAlign: 'middle', marginRight: 0.25, color: 'white', cursor: 'pointer' }} onClick={handlePreviousCard} />
-                </>
-            )}
-            {currentCardIndex < 2 && (
-                <>
-                    <ArrowCircleRightIcon fontSize='large' sx={{ verticalAlign: 'middle', color: 'white', cursor: 'pointer' }} onClick={handleNextCard} />
-                </>
-            )}
-        </Grid>
+        <Box>
+          <Button variant="outlined"
+            sx={{
+              backgroundColor: '#1c5690',
+              color: 'white',
+              borderRadius: '16px',
+              borderColor: '#000',
+              paddingBottom: '1vh',
+              paddingTop: '1vh',
+              boxShadow: '5px 5px 0px #000',
+              '&:hover': {
+                color: 'white',
+              },
+            }}
+            onClick={onClose}>Close</Button>
+        </Box>
       </Grid>
     </Box>
   );
