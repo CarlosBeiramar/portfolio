@@ -15,21 +15,25 @@ const CardGallery = ({onClose}) => {
   const [showIssuuDates, setShowIssuuDates] = useState(false)
   const [showSteelEyeDates, setShowSteelEyeDates] = useState(false)
   const [showCapgeminiDates, setShowCapgeminiDates] = useState(false)
+  const [showUpholdDates, setShowUpholdDates] = useState(false);
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('sm'));
 
   const toggleDatesVisibility = (job) => {
     switch (job) {
-        case 'issuu':
-            setShowIssuuDates(prev => !prev);
-            break;
-        case 'steeleye':
-            setShowSteelEyeDates(prev => !prev)
-            break;
-        case 'capgemini':
-            setShowCapgeminiDates(prev => !prev)
-            break;
-        default:
-          break
+      case 'uphold':
+        setShowUpholdDates(prev => !prev);
+        break;
+      case 'issuu':
+          setShowIssuuDates(prev => !prev);
+          break;
+      case 'steeleye':
+          setShowSteelEyeDates(prev => !prev)
+          break;
+      case 'capgemini':
+          setShowCapgeminiDates(prev => !prev)
+          break;
+      default:
+        break
     }
   }
 
@@ -90,10 +94,17 @@ const CardGallery = ({onClose}) => {
       content: (
         <>
             <Typography variant='body1' paragraph sx={{ display: 'flex', flexDirection: 'row'}}>
+                {!showUpholdDates && <ArrowRightIcon sx={{ cursor: 'pointer' }} onClick={() => toggleDatesVisibility('uphold')}/>}
+                {showUpholdDates && <ArrowDropDownIcon sx={{ cursor: 'pointer' }} onClick={() => toggleDatesVisibility('uphold')}/>}
+                <Box sx={{ fontWeight: 'bold' }}><strong>Junior Backend Engineer</strong> @ Uphold
+                    {showUpholdDates && <Typography variant='body2' sx={{ marginLeft: 2, position: 'absolute'}}>December 2024 - Present</Typography>}
+                </Box>
+            </Typography>
+            <Typography variant='body1' paragraph sx={{ display: 'flex', flexDirection: 'row'}}>
                 {!showIssuuDates && <ArrowRightIcon sx={{ cursor: 'pointer' }} onClick={() => toggleDatesVisibility('issuu')}/>}
                 {showIssuuDates && <ArrowDropDownIcon sx={{ cursor: 'pointer' }} onClick={() => toggleDatesVisibility('issuu')}/>}
                 <Box sx={{ fontWeight: 'bold' }}><strong>Junior Software Engineer</strong> @ Issuu
-                    {showIssuuDates && <Typography variant='body2' sx={{ marginLeft: 2, position: 'absolute'}}>March 2024 - Present</Typography>}
+                    {showIssuuDates && <Typography variant='body2' sx={{ marginLeft: 2, position: 'absolute'}}>March 2024 - August 2024</Typography>}
                 </Box>
             </Typography>
             <Typography variant='body1' paragraph sx={{ display: 'flex', flexDirection: 'row'}}>
@@ -110,7 +121,7 @@ const CardGallery = ({onClose}) => {
                     {showCapgeminiDates && <Typography variant='body2' sx={{ marginLeft: 2, position: 'absolute'}}>Jun. 2022 - Jun. 2023</Typography>}
                 </Box>
             </Typography>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '15vh' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '10vh' }}>
                 <Button variant="outlined" href="./CarlosBeiramar_CV.pdf"
                 sx= {{
                   color:'#fff',
