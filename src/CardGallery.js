@@ -259,6 +259,7 @@ const CardGallery = ({onClose}) => {
               paddingTop: '1vh',
               boxShadow: '5px 5px 0px #000',
               '&:hover': {
+                borderColor: 'black',
                 color: 'white',
               },
             }}

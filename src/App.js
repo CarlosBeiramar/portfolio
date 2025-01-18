@@ -6,7 +6,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PersonIcon from '@mui/icons-material/Person';
-import me from './assets/me.png';
+import me from './assets/me.svg';
 import CardGallery from './CardGallery.js';
 import TypingAnimation from './components/TypingAnimation.tsx';
 import { IconCloud } from './components/IconCloud.tsx';
@@ -61,12 +61,13 @@ function App() {
     "amazonwebservices",
     "figma",
     "javascript",
+    "typescript",
     "elixir",
     "githubactions"
   ];
 
   return (
-    <Grid container style={{ minHeight: '100vh', backgroundColor: '#001524', overflow: 'hidden' }}>
+    <Grid container style={{ minHeight: '100vh', backgroundColor: '#637081', overflow: 'hidden' }}>
 
       {/* Left Side */}
       <Grid item xs={12} md={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
